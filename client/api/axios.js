@@ -19,7 +19,10 @@ axios.interceptors.request.use(config => {
  */
 axios.interceptors.response.use(response => {
   // 对响应数据做点什么
-  let res = response.data
+  let res = response
+  if (response.data && response.data.returnCode) {
+    res = response.data
+  }
   // if (response.data.returnCode === 'SUCCESS') {
   //   res = response.data
   // }

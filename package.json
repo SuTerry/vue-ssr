@@ -4,9 +4,14 @@
   "description": "",
   "main": "babel.config.js",
   "scripts": {
-    "lint": "eslint client/",
+    "lint": "eslint --fix client/",
     "server:client": "cross-env NODE_ENV=server webpack-dev-server --config build/webpack.client.config.js",
-    "server": "cross-env NODE_ENV=server nodemon server/server.js"
+    "server": "cross-env NODE_ENV=server nodemon server/server.js",
+    "dev": "cross-env NODE_ENV=development webpack --config build/webpack.build.config.js && cross-env NODE_ENV=development webpack --config build/webpack.server.config.js",
+    "sit": "cross-env NODE_ENV=testing webpack --config build/webpack.build.config.js && cross-env NODE_ENV=testing webpack --config build/webpack.server.config.js",
+    "pre": "cross-env NODE_ENV=preproduction webpack --config build/webpack.build.config.js && cross-env NODE_ENV=preproduction webpack --config build/webpack.server.config.js",
+    "pro": "cross-env NODE_ENV=production webpack --config build/webpack.build.config.js && cross-env NODE_ENV=production webpack --config build/webpack.server.config.js",
+    "start": "cross-env NODE_ENV=production node server/server.js"
   },
   "repository": {
     "type": "git",

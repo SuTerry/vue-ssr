@@ -17,11 +17,12 @@ app.use(async (ctx, next) => {
     await next()
   } catch (error) {
     ctx.status = 500
-    if (serverMode) {
-      ctx.body = error.message
-    } else {
-      ctx.body = 'please try again later'
-    }
+    ctx.body = error.message
+    // if (serverMode) {
+    //   ctx.body = error.message
+    // } else {
+    //   ctx.body = 'please try again later'
+    // }
   }
 })
 

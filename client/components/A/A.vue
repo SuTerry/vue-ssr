@@ -26,16 +26,21 @@ export default {
   },
   async created() {
 
-    try {
-      const fetcher = this.$createFetcher(api.getUser)
+    const fetcher = this.$createFetcher(api.getUser)
 
-      const res = await fetcher()
+    const res = await fetcher()
 
-      this.env = res.data
-    } catch (error) {
-      console.log(error, 'error');
+    this.env = res.data
 
-    }
+    // try {
+    //   const fetcher = this.$createFetcher(api.getUser)
+
+    //   const res = await fetcher()
+
+    //   this.env = res.data
+    // } catch (error) {
+
+    // }
 
   }
 }

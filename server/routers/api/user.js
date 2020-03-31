@@ -4,7 +4,8 @@ const router = new Router({ prefix: '/user' })
 
 router.get('/', ctx => {
   ctx.body = {
-    data: process.env.NODE_ENV
+    data: process.env.NODE_ENV,
+    returnCode: 'SUCCESS'
   }
 })
 
