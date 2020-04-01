@@ -10,8 +10,12 @@
     "sit": "cross-env NODE_ENV=testing webpack --config build/webpack.build.config.js && cross-env NODE_ENV=testing webpack --config build/webpack.server.config.js",
     "pre": "cross-env NODE_ENV=preproduction webpack --config build/webpack.build.config.js && cross-env NODE_ENV=preproduction webpack --config build/webpack.server.config.js",
     "pro": "cross-env NODE_ENV=production webpack --config build/webpack.build.config.js && cross-env NODE_ENV=production webpack --config build/webpack.server.config.js",
-    "start": "cross-env NODE_ENV=production node server/server.js",
-    "precommit": "npm run lint-fix"
+    "start": "cross-env NODE_ENV=production node server/server.js"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint-fix"
+    }
   },
   "repository": {
     "type": "git",
