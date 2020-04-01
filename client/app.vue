@@ -23,6 +23,8 @@ export default {
   methods: {
     update() {
       alert(process.env.NODE_ENV)
+      console.log(1111)
+
     }
   }
 }
