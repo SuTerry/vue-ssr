@@ -23,7 +23,7 @@ export default {
   methods: {
     update() {
       alert(process.env.NODE_ENV)
-      console.log(11111)
+      console.log(111111)
 
     }
   }
