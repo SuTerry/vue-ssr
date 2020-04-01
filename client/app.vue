@@ -5,7 +5,8 @@
     <router-link :to="{ name: 'B' }" v-text="'to B'" />
     <div class="store-example">
       <h1>h2</h1>
-      <button @click="update">updateCount</button>
+      <!-- <button @click="update">updateCount</button> -->
+      <el-button icon="el-icon-search" @click="update">updateCount</el-button>
     </div>
   </div>
 </template>

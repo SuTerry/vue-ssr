@@ -14,13 +14,25 @@ export default () => {
       {
         path: '/a',
         name: 'A',
-        component: () => import(/* webpackChunkName: "A", webpackPrefetch: true */ '@components/A/A')
+        component: () => import(/* webpackChunkName: "A", webpackPrefetch: true */ '@pages/A')
       },
       {
         path: '/b',
         name: 'B',
-        component: () => import(/* webpackChunkName: "B", webpackPrefetch: true */ '@components/B/B')
-      }
+        component: () => import(/* webpackChunkName: "B", webpackPrefetch: true */ '@pages/B')
+      },
+      {
+        path: '/404',
+        name: '404',
+        component: () => import(/* webpackChunkName: "404", webpackPrefetch: true */ '@pages/404')
+      },
+      // 重定向
+      {
+        path: "/*",
+        redirect: {
+          name: '404'
+        }
+      },
     ],
     scrollBehavior() {
       return {

@@ -15,12 +15,6 @@ export default async context => {
 
   await routerReady(router)
 
-  const matchedComponents = router.getMatchedComponents()
-
-  if (!matchedComponents.length) {
-    throw new Error('no component matched')
-  }
-
   context.meta = app.$meta()
   context.rendered = serverPlugin.done
   context.state = {

@@ -1,11 +1,14 @@
 import Vue from 'vue'
 import App from './app.vue'
 import Meta from 'vue-meta'
+import ElementUI from 'element-ui'
+import 'element-ui/lib/theme-chalk/index.css'
 
 import createRouter from './router'
 import createStore from './store'
 
 Vue.use(Meta)
+Vue.use(ElementUI)
 
 export default () => {
   const router = createRouter()

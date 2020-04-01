@@ -31,7 +31,7 @@ module.exports = {
     }
 
     const generateLoaders = (loader, loaderOptions) => {
-      const loaders = [threadLoader, cssLoader, postcssLoader]
+      let loaders = [cssLoader, postcssLoader]
 
       if (loader) {
         loaders.push({
@@ -41,12 +41,17 @@ module.exports = {
           })
         })
       }
-      if (target === 'node') return
-      if (serverMode) {
-        return ['vue-style-loader'].concat(loaders)
-      } else {
-        return [MiniCssExtractPlugin.loader].concat(loaders)
+      if (target !== 'node') {
+        if (serverMode) {
+          loaders.unshift('vue-style-loader')
+        } else {
+          loaders.unshift(MiniCssExtractPlugin.loader)
+        }
       }
+
+      loaders.unshift(threadLoader)
+
+      return loaders
     }
 
     return {

@@ -30,7 +30,12 @@ const webpackServerConfig = {
       'process.env.VUE_ENV': JSON.stringify('server')
     }),
     new VueServerPlugin()
-  ]
+  ],
+  optimization: {
+    splitChunks: {
+      chunks: 'async',
+    }
+  }
 }
 
 module.exports = merge(webpackBaseConfig, webpackServerConfig)
