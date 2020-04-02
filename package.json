@@ -11,10 +11,9 @@
     "pre": "cross-env NODE_ENV=preproduction webpack --config build/webpack.build.config.js && cross-env NODE_ENV=preproduction webpack --config build/webpack.server.config.js",
     "pro": "cross-env NODE_ENV=production webpack --config build/webpack.build.config.js && cross-env NODE_ENV=production webpack --config build/webpack.server.config.js",
     "start": "cross-env NODE_ENV=production node server/server.js",
+    "precommit": "npm run lint-fix"
   },
-  "pre-commit": [
-    "lint-fix"
-  ],
+
   "repository": {
     "type": "git",
     "url": "git+https://github.com/SuTerry/vue-ssr.git"
@@ -42,6 +41,7 @@
     "eslint-plugin-vue": "^6.2.2",
     "file-loader": "^6.0.0",
     "html-webpack-plugin": "^4.0.3",
+    "husky": "^4.2.3",
     "koa-webpack-dev-middleware": "^2.0.2",
     "koa-webpack-hot-middleware": "^1.0.3",
     "memory-fs": "^0.5.0",
