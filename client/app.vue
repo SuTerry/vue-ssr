@@ -12,6 +12,7 @@
 </template>
 
 <script>
+import '@css/common'
 export default {
   name: 'App',
   metaInfo: {

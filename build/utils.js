@@ -8,14 +8,6 @@ module.exports = {
   },
   cssLoaders(target) {
 
-    const threadLoader = {
-      loader: 'thread-loader',
-      options: {
-        workerParallelJobs: 50,
-        poolTimeout: 2000
-      }
-    }
-
     const cssLoader = {
       loader: 'css-loader',
       options: {
@@ -49,22 +41,21 @@ module.exports = {
         }
       }
 
-      loaders.unshift(threadLoader)
-
       return loaders
     }
 
     return {
       css: generateLoaders(),
-      sass: generateLoaders('sass', { indentedSyntax: true }),
+      sass: generateLoaders('sass'),
     }
   },
   styleLoaders(target = 'web') {
     const output = []
     const loaders = this.cssLoaders(target)
 
-    for (const extension in loaders) {
+    for (let extension in loaders) {
       const loader = loaders[extension]
+      extension = extension === 'sass' ? '(sa|sc)ss' : extension
       output.push({
         test: new RegExp('\\.' + extension + '$'),
         use: loader

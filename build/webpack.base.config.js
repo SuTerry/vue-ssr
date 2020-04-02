@@ -53,21 +53,27 @@ module.exports = {
       },
       {
         test: /\.(png|svg|jpg|gif|jpeg|cur)/,
-        use: [{
-          loader: "url-loader",
-          options: {
-            limit: 8192,
-            name: utils.assetsPath('img/[name].[hash:7].[ext]')
+        use: [
+          {
+            loader: "url-loader",
+            options: {
+              limit: 8192,
+              name: utils.assetsPath('img/[name].[hash:7].[ext]')
+            }
           }
-        }]
+        ]
       },
       {
         test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
-        loader: 'url-loader',
-        options: {
-          limit: 8192,
-          name: utils.assetsPath('fonts/[name].[hash:7].[ext]')
-        }
+        use: [
+          {
+            loader: 'url-loader',
+            options: {
+              limit: 8192,
+              name: utils.assetsPath('fonts/[name].[hash:7].[ext]')
+            }
+          }
+        ]
       }
     ],
   },
@@ -86,7 +92,7 @@ module.exports = {
     }),
   ],
   resolve: {
-    extensions: ['.js', '.vue', '.sass', '.css'],
+    extensions: ['.js', '.vue', '.scss', '.css'],
     alias: {
       vue$: 'vue/dist/vue.esm.js',
       '@pages': path.resolve(__dirname, '../client/pages'),

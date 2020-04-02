@@ -50,6 +50,6 @@ app.use(pageRouter.routes()).use(pageRouter.allowedMethods())
 
 app.listen(port, () => {
   console.log(
-    'listening on port ' + chalk.green(`http://localhost.ccopyright.com.cn:${port}`)
+    'listening on port ' + chalk.green(`http://127.0.0.1:${port}`)
   )
 })
