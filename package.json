@@ -13,7 +13,9 @@
     "start": "cross-env NODE_ENV=production node server/server.js",
     "precommit": "npm run lint-fix"
   },
-
+  "pre-commit": [
+    "lint-fix"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/SuTerry/vue-ssr.git"
